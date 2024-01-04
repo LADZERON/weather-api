@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'telegram' => [
+        'client_id' => env('TELEGRAM_CLIENT_ID'),
+        'client_secret' => env('TELEGRAM_CLIENT_SECRET'),
+        'redirect' => env('TELEGRAM_REDIRECT'),
+    ],
+
 ];
