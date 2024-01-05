@@ -1,8 +1,0 @@
-{
-    "require": {
-        "predis/predis": "^2.2"
-    },
-    "require-dev": {
-        "laravel/sail": "^1.26"
-    }
-}
