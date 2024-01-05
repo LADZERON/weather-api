@@ -1,0 +1,167 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:9000'
+paths:
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: michael.krajcik@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: "V9Bn)[7eryvz'8/(@"
+              required:
+                - email
+                - password
+      security: []
+  /api/registration:
+    post:
+      summary: 'Registration new user.'
+      operationId: registrationNewUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: attcmxrrjazc
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: francis.west@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: '5/[H7(&68dLZ'
+                password_confirmation:
+                  type: string
+                  description: 'The value and <code>password</code> must match. Must be at least 8 characters.'
+                  example: jhiuusdltayffrolxgokkshfktkouvazqnuhjylxsbvatrayjnsblvjfadkmxkzrcup
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  '/api/user/{id}':
+    get:
+      summary: ''
+      operationId: getApiUserId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the specified user.'
+      operationId: updateTheSpecifiedUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yvsppsgqdsgxiyjdtgswffpy
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/user/profile:
+    get:
+      summary: ''
+      operationId: getApiUserProfile
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
