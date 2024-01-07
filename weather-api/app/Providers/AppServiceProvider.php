@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Integrations\Currency\Requests\MonoBankRequest;
 use Illuminate\Support\ServiceProvider;
+use Saloon\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(Request::class, function () {
+            return new MonoBankRequest();
+        });
     }
 
     /**

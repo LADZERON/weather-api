@@ -17,7 +17,7 @@ class RegistrationServices
     {
         $user = User::create($request->only(['name', 'email', 'password']));
         $user->assignRole(BaseRoleEnum::CLIENT);
-        
+
         return response()->json(['message' => 'Successfully created user!']);
     }
 }

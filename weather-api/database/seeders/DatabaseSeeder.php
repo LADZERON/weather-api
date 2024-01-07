@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PermissionTableSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            CurrencySeeder::class,
         ]);
         DB::commit();
     }

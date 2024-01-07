@@ -8,6 +8,5 @@ class Role extends \Spatie\Permission\Models\Role
 {
     use HasFactory;
 
-    
     public const NAME_ATTRIBUTE = 'name';
 }
